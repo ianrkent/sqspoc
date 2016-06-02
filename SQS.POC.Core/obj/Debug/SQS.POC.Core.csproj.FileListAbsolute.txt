@@ -1,0 +1,6 @@
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\SQS.POC.Core.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\SQS.POC.Core.pdb
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\obj\Debug\SQS.POC.Core.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\obj\Debug\SQS.POC.Core.pdb

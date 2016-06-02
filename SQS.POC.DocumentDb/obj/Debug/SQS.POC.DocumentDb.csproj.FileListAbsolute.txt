@@ -1,0 +1,9 @@
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\DataDocumentDB.exe.config
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\DataDocumentDB.exe
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\DataDocumentDB.pdb
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\obj\Debug\SQS.POC.DocumentDb.csprojResolveAssemblyReference.cache
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\obj\Debug\DataDocumentDB.exe
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.DocumentDb\obj\Debug\DataDocumentDB.pdb
