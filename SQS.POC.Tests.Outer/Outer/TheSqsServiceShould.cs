@@ -32,7 +32,7 @@ namespace SQS.POC.Tests.Outer
         [Test]
         public void PersistACopyOfTheStockChangeMessage()
         {
-            
+            Assert.Fail("not implemented test");
         }
     }
 }
