@@ -1,7 +1,5 @@
 ﻿using System;
-using FluentAssertions.Events;
 using NSubstitute;
-using NSubstitute.Core.Arguments;
 using NUnit.Framework;
 using SQS.POC.Core;
 using SQS.POC.Core.Adapters.Configuration;
@@ -13,16 +11,22 @@ using SQS.POC.Core.Messages;
 namespace SQS.POC.Tests.Outer
 {
     [TestFixture]
-    public class TheSqsServiceShould : AutoSubstituteTestBase<SqsWorker>
+    public class TheSqsServiceShould : OuterTestBase
     {
-        private SqsWorker TheSqsWorker => Sut;
+        private SqsWorker TheSqsWorker;
+
+        [SetUp]
+        public void Setup()
+        {
+            TheSqsWorker = IoCConfig.ResolveService<SqsWorker>();
+        }
 
         [Test]
         public void RetrieveItsListOfWarehousesFromConfiguration()
         {
             TheSqsWorker.Start();
 
-            TheDependency<IServiceConfiguration>()
+            AdapterSubstitute<IServiceConfiguration>()
                 .Received().GetConfigSetting(ConfigSettingKeys.WarehouseList);
         }
 
@@ -31,10 +35,9 @@ namespace SQS.POC.Tests.Outer
         {
             TheSqsWorker.Start();
 
-            TheDependency<IAzureTopicSubscriber>()
+            AdapterSubstitute<IAzureTopicSubscriber>()
                 .Received()
                 .Subscribe(Arg.Is<SubscriptionCreationArgs>(arg => arg.ContractType == typeof (StockChangeEventV1)));
-
         }
 
         [Test]
@@ -45,18 +48,18 @@ namespace SQS.POC.Tests.Outer
 
             // capture the callback that is being used as a message handler for the Azure subscription
             Action<StockChangeEventV1> subscriptionMessageHandler = null;
-            TheDependency<IAzureTopicSubscriber>()
+            AdapterSubstitute<IAzureTopicSubscriber>()
                 .Subscribe(
                     Arg.Do<SubscriptionCreationArgs>(
                         creationArgs => subscriptionMessageHandler = creationArgs.MessageHandler));
-            TheDependency<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(null as StockQuantityEntity);
+            AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(null as StockQuantityEntity);
 
             // act
             TheSqsWorker.Start();
             subscriptionMessageHandler(new StockChangeEventV1 { Sku = sku, WarehouseId = warehouseId });
 
             // assert
-            TheDependency<IStockQuantityCommand>()
+            AdapterSubstitute<IStockQuantityCommand>()
                 .Received(1)
                 .Insert(Arg.Is<StockQuantityEntity>(arg => arg.WarehouseId == warehouseId && arg.Sku == sku));
         }
@@ -83,9 +86,9 @@ namespace SQS.POC.Tests.Outer
             };
 
             Action<StockChangeEventV1> subscriptionMessageHandler = null;
-            TheDependency<IAzureTopicSubscriber>()
+            AdapterSubstitute<IAzureTopicSubscriber>()
                 .Subscribe(Arg.Do<SubscriptionCreationArgs>(creationArgs => subscriptionMessageHandler = creationArgs.MessageHandler));
-            TheDependency<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(existing);
+            AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(existing);
 
             // act
             TheSqsWorker.Start();
@@ -93,7 +96,7 @@ namespace SQS.POC.Tests.Outer
             subscriptionMessageHandler(message);
 
             // assert
-            TheDependency<IStockQuantityCommand>()
+            AdapterSubstitute<IStockQuantityCommand>()
                 .Received(1)
                 .Update(Arg.Is<StockQuantityEntity>(arg => arg.WarehouseId == warehouseId && arg.Sku == sku));
         }

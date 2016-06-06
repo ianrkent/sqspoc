@@ -3,3 +3,5 @@ C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\SQS.POC.Core
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\obj\Debug\SQS.POC.Core.dll
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\obj\Debug\SQS.POC.Core.pdb
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\obj\Debug\SQS.POC.Core.csprojResolveAssemblyReference.cache
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\Autofac.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Core\bin\Debug\Autofac.xml

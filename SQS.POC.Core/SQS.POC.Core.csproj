@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -46,16 +50,26 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Adapters\Configuration\AppSettingsConfiguration.cs" />
     <Compile Include="Adapters\Configuration\ConfigSettingKeys.cs" />
     <Compile Include="Adapters\DataStore\IStockQuantityCommand.cs" />
     <Compile Include="Adapters\DataStore\IStockQuantityQuery.cs" />
+    <Compile Include="Adapters\DataStore\StockQuantityCommand.cs" />
+    <Compile Include="Adapters\DataStore\StockQuantityQuery.cs" />
+    <Compile Include="Adapters\Messaging\AzureTopicSubscriber.cs" />
     <Compile Include="Adapters\Messaging\IAzureTopicSubscriber.cs" />
     <Compile Include="Adapters\Configuration\IServiceConfiguration.cs" />
     <Compile Include="Entities\StockQuantityEntity.cs" />
+    <Compile Include="Messages\Handlers\IMessageHandler.cs" />
+    <Compile Include="IoCConfig.cs" />
     <Compile Include="SqsWorker.cs" />
     <Compile Include="Messages\StockChangeEventV1.cs" />
     <Compile Include="Adapters\Messaging\SubscriptionCreationArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Messages\Handlers\StockChangeHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

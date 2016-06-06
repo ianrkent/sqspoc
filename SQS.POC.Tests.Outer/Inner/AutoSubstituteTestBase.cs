@@ -1,7 +1,7 @@
 ﻿using AutofacContrib.NSubstitute;
 using NUnit.Framework;
 
-namespace SQS.POC.Tests
+namespace SQS.POC.Tests.Inner
 {
     [TestFixture]
     public abstract class AutoSubstituteTestBase<TSut>
