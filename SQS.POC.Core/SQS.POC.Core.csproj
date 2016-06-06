@@ -47,11 +47,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Adapters\Configuration\ConfigSettingKeys.cs" />
-    <Compile Include="Adapters\Azure\IAzureTopicSubscriber.cs" />
+    <Compile Include="Adapters\DataStore\IStockQuantityCommand.cs" />
+    <Compile Include="Adapters\DataStore\IStockQuantityQuery.cs" />
+    <Compile Include="Adapters\Messaging\IAzureTopicSubscriber.cs" />
     <Compile Include="Adapters\Configuration\IServiceConfiguration.cs" />
+    <Compile Include="Entities\StockQuantityEntity.cs" />
     <Compile Include="SqsWorker.cs" />
     <Compile Include="Messages\StockChangeEventV1.cs" />
-    <Compile Include="Adapters\Azure\SubscriptionCreationArgs.cs" />
+    <Compile Include="Adapters\Messaging\SubscriptionCreationArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>

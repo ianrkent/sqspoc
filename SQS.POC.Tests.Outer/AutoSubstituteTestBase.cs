@@ -4,20 +4,20 @@ using NUnit.Framework;
 namespace SQS.POC.Tests
 {
     [TestFixture]
-    public abstract class AutoSubstituteFixture<T>
+    public abstract class AutoSubstituteTestBase<TSut>
     {
-        protected T Target;
+        protected TSut Sut;
         private readonly AutoSubstitute _autoSubstitute = new AutoSubstitute();
 
         [SetUp]
         public void Setup()
         {
-            Target = _autoSubstitute.Resolve<T>();
+            Sut = _autoSubstitute.Resolve<TSut>();
         }
 
-        protected T GetDependencyAsSubstitute<T>()
+        protected TDependency TheDependency<TDependency>()
         {
-            return _autoSubstitute.Resolve<T>();
+            return _autoSubstitute.Resolve<TDependency>();
         }
     }
 }

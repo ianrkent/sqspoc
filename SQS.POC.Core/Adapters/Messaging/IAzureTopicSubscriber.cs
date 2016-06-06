@@ -1,4 +1,4 @@
-﻿namespace SQS.POC.Core.Adapters.Azure
+﻿namespace SQS.POC.Core.Adapters.Messaging
 {
     public interface IAzureTopicSubscriber
     {

@@ -80,7 +80,7 @@
   <ItemGroup>
     <Compile Include="Inner\SqsWorkerShould.cs" />
     <Compile Include="Inner\Adapters\AppConfigServiceConfigurationShould.cs" />
-    <Compile Include="AutoSubstituteFixture.cs" />
+    <Compile Include="AutoSubstituteTestBase.cs" />
     <Compile Include="Outer\TheSqsServiceShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
