@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace SQS.POC.Tests.Inner.Adapters
 {
-    [TestClass]
+    [TestFixture]
     public class AppConfigServiceConfigurationShould
     {
-        [TestMethod]
+        [Test]
         public void ReadAppSettingsToGetWarehouseList()
         {
         

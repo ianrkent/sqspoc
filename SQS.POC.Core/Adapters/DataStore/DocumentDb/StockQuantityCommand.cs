@@ -1,6 +1,7 @@
+using System.Threading.Tasks;
 using SQS.POC.Core.Entities;
 
-namespace SQS.POC.Core.Adapters.DataStore
+namespace SQS.POC.Core.Adapters.DataStore.DocumentDb
 {
     public class StockQuantityCommand  : IStockQuantityCommand
     {
@@ -9,7 +10,7 @@ namespace SQS.POC.Core.Adapters.DataStore
             throw new System.NotImplementedException();
         }
 
-        public void Update(StockQuantityEntity entity)
+        public async Task Update(StockQuantityEntity entity)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using NSubstitute;
 using NUnit.Framework;
 using SQS.POC.Core;
@@ -41,13 +42,13 @@ namespace SQS.POC.Tests.Outer
         }
 
         [Test]
-        public void InsertAWarehouseStockEntryWhenAStockChangeEventIsReceivedAndItDoesntExist()
+        public async Task InsertAWarehouseStockEntryWhenAStockChangeEventIsReceivedAndItDoesntExist()
         {
             const string sku = "1234";
             const string warehouseId = "FC01";
 
             // capture the callback that is being used as a message handler for the Azure subscription
-            Action<StockChangeEventV1> subscriptionMessageHandler = null;
+            Func<StockChangeEventV1, Task> subscriptionMessageHandler = null;
             AdapterSubstitute<IAzureTopicSubscriber>()
                 .Subscribe(
                     Arg.Do<SubscriptionCreationArgs>(
@@ -56,7 +57,7 @@ namespace SQS.POC.Tests.Outer
 
             // act
             TheSqsWorker.Start();
-            subscriptionMessageHandler(new StockChangeEventV1 { Sku = sku, WarehouseId = warehouseId });
+            await subscriptionMessageHandler(new StockChangeEventV1 { Sku = sku, WarehouseId = warehouseId });
 
             // assert
             AdapterSubstitute<IStockQuantityCommand>()
@@ -65,7 +66,7 @@ namespace SQS.POC.Tests.Outer
         }
 
         [Test]
-        public void UpdateAWarehouseStockEntryWhenAStockChangeEventIsReceivedAndItDoesExist()
+        public async Task UpdateAWarehouseStockEntryWhenAStockChangeEventIsReceivedAndItDoesExist()
         {
             const string sku = "1234";
             const string warehouseId = "FC01";
@@ -85,18 +86,17 @@ namespace SQS.POC.Tests.Outer
                 ReservedQty = 1
             };
 
-            Action<StockChangeEventV1> subscriptionMessageHandler = null;
+            Func<StockChangeEventV1, Task> subscriptionMessageHandler = null;
             AdapterSubstitute<IAzureTopicSubscriber>()
                 .Subscribe(Arg.Do<SubscriptionCreationArgs>(creationArgs => subscriptionMessageHandler = creationArgs.MessageHandler));
             AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(existing);
 
             // act
             TheSqsWorker.Start();
-
-            subscriptionMessageHandler(message);
+            await subscriptionMessageHandler(message);
 
             // assert
-            AdapterSubstitute<IStockQuantityCommand>()
+            await AdapterSubstitute<IStockQuantityCommand>()
                 .Received(1)
                 .Update(Arg.Is<StockQuantityEntity>(arg => arg.WarehouseId == warehouseId && arg.Sku == sku));
         }

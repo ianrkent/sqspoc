@@ -10,7 +10,7 @@ namespace SQS.POC.Tests.Inner
         private readonly AutoSubstitute _autoSubstitute = new AutoSubstitute();
 
         [SetUp]
-        public void Setup()
+        public virtual void Setup()
         {
             Sut = _autoSubstitute.Resolve<TSut>();
         }

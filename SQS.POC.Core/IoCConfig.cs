@@ -1,6 +1,7 @@
 using Autofac;
 using SQS.POC.Core.Adapters.Configuration;
 using SQS.POC.Core.Adapters.DataStore;
+using SQS.POC.Core.Adapters.DataStore.DocumentDb;
 using SQS.POC.Core.Adapters.Messaging;
 using SQS.POC.Core.Messages;
 

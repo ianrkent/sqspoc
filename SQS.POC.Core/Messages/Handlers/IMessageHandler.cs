@@ -1,9 +1,11 @@
+using System.Threading.Tasks;
+
 namespace SQS.POC.Core
 {
     public interface IMessageHandler<in TMessage>
     {
         void Init();
 
-        void HandleMessage(TMessage message);
+        Task HandleMessage(TMessage message);
     }
 }

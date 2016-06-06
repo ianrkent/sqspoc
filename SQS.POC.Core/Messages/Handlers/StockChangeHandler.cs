@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using SQS.POC.Core.Adapters.Configuration;
 using SQS.POC.Core.Adapters.DataStore;
 using SQS.POC.Core.Adapters.Messaging;
@@ -35,9 +36,9 @@ namespace SQS.POC.Core
             });
         }
 
-        public void HandleMessage(StockChangeEventV1 message)
+        public async Task HandleMessage(StockChangeEventV1 message)
         {
-            var existing = _stockQuantityQuery.GetSingle(message.Sku, message.WarehouseId);
+            var existing = await _stockQuantityQuery.GetSingle(message.Sku, message.WarehouseId);
             if (existing == null)
             {
                 _command.Insert(new StockQuantityEntity
@@ -48,7 +49,7 @@ namespace SQS.POC.Core
             }
             else
             {
-                _command.Update(existing);
+                await _command.Update(existing);
             }
         }
     }

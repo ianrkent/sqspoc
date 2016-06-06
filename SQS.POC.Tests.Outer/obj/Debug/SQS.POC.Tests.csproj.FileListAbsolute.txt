@@ -20,3 +20,9 @@ C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Autof
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\AutofacContrib.NSubstitute.xml
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\SQS.POC.Core.dll
 C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\SQS.POC.Core.pdb
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\DocumentDB.Spatial.Sql.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Microsoft.Azure.Documents.Client.xml
+C:\Users\ian.kent\Documents\Projects\SQS.POC\SQS.POC.Tests.Outer\bin\Debug\Newtonsoft.Json.xml
