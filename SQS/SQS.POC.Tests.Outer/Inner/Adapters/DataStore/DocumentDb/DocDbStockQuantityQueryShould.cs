@@ -11,18 +11,19 @@ namespace SQS.POC.Tests.Inner.Adapters.DataStore.DocumentDb
     [TestFixture]
     public class DocDbStockQuantityQueryShould 
     {
+        private const string StockQuantityCollectionName = "aTestCollection";
         private DocumentClient docDbClient;
         private StockQuantityQuery target;
 
-        private const string TestDbName = "TestDB";
+        private string _databaseUri;
 
         [SetUp]
         public void Setup()
         {
-            docDbClient = new DocumentClient(new Uri("https://sqs-poc.documents.azure.com:443/"),
-                "JSZyonD9aBOPRJxDrOgoUCPwQY4tm3COkv9DdWY3OGOX0u93nbVSJinWaA9OpLtT9HafPf7mOWrfKfhmsjAgDg==");
+            docDbClient = new DocumentClient(new Uri("https://sqs-pact-poc.documents.azure.com:443/"),
+                "ss7aB43UfyFCBWccAJUqo972Am7qOMFJaD2RNgq1LWHTOZqWHtnmQ1rhP4qvDODq0ccybhtFAtFJRnrdUhg9AA==");
 
-            docDbClient.EnsureDatabase(TestDbName).Wait();
+            _databaseUri = docDbClient.EnsureDatabase("TestDB").Result;
 
             target = new StockQuantityQuery();
         }
@@ -36,7 +37,7 @@ namespace SQS.POC.Tests.Inner.Adapters.DataStore.DocumentDb
         [Test]
         public async Task ReturnNullIfTheDocumentCollectionDoesntExist()
         {
-            await docDbClient.DeleteDocumentCollectionIfExists(TestDbName, "aTestCollection");
+            await docDbClient.DeleteDocumentCollectionIfExists(_databaseUri, StockQuantityCollectionName);
             
             var result = await target.GetSingle("abc", "FC01");
 
@@ -46,7 +47,7 @@ namespace SQS.POC.Tests.Inner.Adapters.DataStore.DocumentDb
         [Test]
         public async Task ReturnNullIfTheDocumentIsNotFound()
         {
-            await docDbClient.EnsureCollection(TestDbName, "aTestCollection");
+            await docDbClient.EnsureCollection(_databaseUri, StockQuantityCollectionName);
 
             var result = await target.GetSingle("abc", "FC01");
 
@@ -65,11 +66,14 @@ namespace SQS.POC.Tests.Inner.Adapters.DataStore.DocumentDb
                 ReservedQty = 3
             };
 
-            await docDbClient.EnsureDocument(TestDbName, "aTestCollection", existing );
+            var collectionLink = await docDbClient.EnsureCollection(_databaseUri, StockQuantityCollectionName);
+            await docDbClient.DeleteDocuments<StockQuantityEntity>(collectionLink, sqe => sqe.Sku == existing.Sku && sqe.WarehouseId == existing.WarehouseId);
+            await docDbClient.EnsureDocument(collectionLink, existing );
 
             var result = await target.GetSingle(existing.Sku, existing.WarehouseId);
 
             result.ShouldBeEquivalentTo(existing);
+
         }
     }
 

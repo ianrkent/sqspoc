@@ -89,6 +89,7 @@
     <Compile Include="Inner\Adapters\AppConfigServiceConfigurationShould.cs" />
     <Compile Include="Inner\AutoSubstituteTestBase.cs" />
     <Compile Include="Outer\OuterTestBase.cs" />
+    <Compile Include="Outer\PactVerification\SqsApiShouldHonourProductPact.cs" />
     <Compile Include="Outer\TheSqsServiceShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

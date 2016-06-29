@@ -38,7 +38,7 @@ namespace SQS.POC.Core.Adapters.DataStore.DocumentDb
 
         private static DocumentClient GetDocumentClient()
         {
-            return new DocumentClient(new Uri("https://sqs-poc.documents.azure.com:443/"), "JSZyonD9aBOPRJxDrOgoUCPwQY4tm3COkv9DdWY3OGOX0u93nbVSJinWaA9OpLtT9HafPf7mOWrfKfhmsjAgDg==");
+            return new DocumentClient(new Uri("https://sqs-pact-poc.documents.azure.com:443/"), "ss7aB43UfyFCBWccAJUqo972Am7qOMFJaD2RNgq1LWHTOZqWHtnmQ1rhP4qvDODq0ccybhtFAtFJRnrdUhg9AA==");
         }
     }
 }
