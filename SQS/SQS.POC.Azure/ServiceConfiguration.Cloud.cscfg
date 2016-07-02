@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="SQS.POC.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="StockQuantity.Worker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=sqspocstorageeun;AccountKey=A5mjCzpURss6fbEzkzFh7+M8vjSQToVvvb3OEpOlg1Ft5aaBuCuyyI7VbV+XOejrXW/Q7er/qqricwK4E9Xw6g==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="16137782-cf24-48d1-a375-9097514afc5e" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
