@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Product.Tests
+namespace Product.Tests.Client
 {
     public static class Constants
     {

@@ -5,6 +5,7 @@ using NUnit.Framework;
 using PactNet;
 using PactNet.Mocks.MockHttpService;
 using PactNet.Mocks.MockHttpService.Models;
+using Product.Tests.Client;
 
 namespace Product.Tests
 {
