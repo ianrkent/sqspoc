@@ -21,11 +21,12 @@ namespace Product.Tests
         [OneTimeSetUp]
         public void FixtureSetup()
         {
-            _pactBuilder = new PactBuilder();
+            var pactConfig = new PactConfig { PactDir = $"{ Constants.PactRootLocation}\\{Constants.PactProviderNames.SqsPocApi}\\{Constants.PactConsumerNames.Product}", LogDir = $"{ Constants.PactRootLocation }\\logs" };
+            _pactBuilder = new PactBuilder(pactConfig);
 
             _pactBuilder
-                .ServiceConsumer("Product")
-                .HasPactWith("Stock Quantity Service API");
+                .ServiceConsumer(Constants.PactConsumerNames.Product)
+                .HasPactWith(Constants.PactProviderNames.SqsPocApi);
 
             _mockProviderService = _pactBuilder.MockService(
                 MockSqsApiPort, 

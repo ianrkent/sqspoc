@@ -12,5 +12,17 @@ namespace Product.Tests.Client
             DateParseHandling = DateParseHandling.DateTime,
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
+
+        public static class PactProviderNames
+        {
+            public static string SqsPocApi = "Stock Quantity Service API";
+        }
+
+        public static class PactConsumerNames
+        {
+            public static string Product = "Product";
+        }
+
+        public static string PactRootLocation = "c:\\pacts";
     }
 }

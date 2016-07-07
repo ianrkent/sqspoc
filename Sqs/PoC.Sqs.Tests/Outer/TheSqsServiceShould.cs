@@ -44,8 +44,13 @@ namespace PoC.Sqs.Tests.Outer
         [Test]
         public async Task InsertAWarehouseStockEntryWhenAStockChangeEventIsReceivedAndItDoesntExist()
         {
+            // arrange
             const string sku = "1234";
             const string warehouseId = "FC01";
+
+            AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(null as StockQuantityEntity);
+
+            // act
 
             // capture the callback that is being used as a message handler for the Azure subscription
             Func<StockChangeEventV1, Task> subscriptionMessageHandler = null;
@@ -53,9 +58,7 @@ namespace PoC.Sqs.Tests.Outer
                 .Subscribe(
                     Arg.Do<SubscriptionCreationArgs>(
                         creationArgs => subscriptionMessageHandler = creationArgs.MessageHandler));
-            AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(null as StockQuantityEntity);
 
-            // act
             TheSqsWorker.Start();
             await subscriptionMessageHandler(new StockChangeEventV1 { Sku = sku, WarehouseId = warehouseId });
 
