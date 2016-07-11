@@ -3,8 +3,8 @@ using PoC.Sqs.Core.Adapters.Configuration;
 using PoC.Sqs.Core.Adapters.DataStore;
 using PoC.Sqs.Core.Adapters.DataStore.DocumentDb;
 using PoC.Sqs.Core.Adapters.Messaging;
-using PoC.Sqs.Core.Messages;
-using PoC.Sqs.Core.Messages.Handlers;
+using PoC.Sqs.Core.Messaging;
+using PoC.Sqs.Core.Messaging.Handlers;
 
 namespace PoC.Sqs.Core
 {

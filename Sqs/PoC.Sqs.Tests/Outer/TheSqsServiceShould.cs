@@ -7,7 +7,7 @@ using PoC.Sqs.Core.Adapters.Configuration;
 using PoC.Sqs.Core.Adapters.DataStore;
 using PoC.Sqs.Core.Adapters.Messaging;
 using PoC.Sqs.Core.Entities;
-using PoC.Sqs.Core.Messages;
+using PoC.Sqs.Core.Messaging;
 
 namespace PoC.Sqs.Tests.Outer
 {

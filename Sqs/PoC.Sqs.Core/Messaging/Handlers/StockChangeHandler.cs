@@ -5,7 +5,7 @@ using PoC.Sqs.Core.Adapters.DataStore;
 using PoC.Sqs.Core.Adapters.Messaging;
 using PoC.Sqs.Core.Entities;
 
-namespace PoC.Sqs.Core.Messages.Handlers
+namespace PoC.Sqs.Core.Messaging.Handlers
 {
     public class StockChangeHandler : IMessageHandler<StockChangeEventV1>
     {

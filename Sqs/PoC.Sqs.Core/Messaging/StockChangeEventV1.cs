@@ -1,4 +1,4 @@
-namespace PoC.Sqs.Core.Messages
+namespace PoC.Sqs.Core.Messaging
 {
     public class StockChangeEventV1
     {

@@ -1,7 +1,7 @@
 using Nancy.Owin;
 using Owin;
 
-namespace Poc.Sqs.Worker.Owin
+namespace PoC.Sqs.Core.Infrastructure.Owin
 {
     public class Startup
     {

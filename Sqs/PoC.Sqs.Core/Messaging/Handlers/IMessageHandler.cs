@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace PoC.Sqs.Core.Messages.Handlers
+namespace PoC.Sqs.Core.Messaging.Handlers
 {
     public interface IMessageHandler<in TMessage>
     {

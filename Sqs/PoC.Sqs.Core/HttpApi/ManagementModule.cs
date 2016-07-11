@@ -1,6 +1,6 @@
 using Nancy;
 
-namespace Poc.Sqs.Worker.NancyModules
+namespace PoC.Sqs.Core.HttpApi
 {
     public class ManagementModule : NancyModule
     {

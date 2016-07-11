@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Owin.Hosting;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Poc.Sqs.Worker.Owin;
+using PoC.Sqs.Core.Infrastructure.Owin;
 
 namespace Poc.Sqs.Worker
 {

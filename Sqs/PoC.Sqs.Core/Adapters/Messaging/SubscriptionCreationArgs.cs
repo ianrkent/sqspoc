@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using PoC.Sqs.Core.Messages;
+using PoC.Sqs.Core.Messaging;
 
 namespace PoC.Sqs.Core.Adapters.Messaging
 {
