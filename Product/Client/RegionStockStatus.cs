@@ -1,4 +1,4 @@
-﻿namespace Product.Tests
+﻿namespace Product.Tests.Client
 {
     public enum RegionStockStatus   
     {

@@ -16,7 +16,7 @@ namespace PoC.Sqs.Core
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<SqsWorker>();
+            builder.RegisterType<SqsMessagingWorker>();
             builder.RegisterType<StockChangeHandler>().As<IMessageHandler<StockChangeEventV1>>();
 
             RegisterAdapterServices(builder);

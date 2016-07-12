@@ -6,7 +6,7 @@ namespace PoC.Sqs.Core.HttpApi
     {
         public ManagementModule() : base("/manage")
         {
-            Get["/status"] = x => "Status is 'Up and running'";
+            Get["/status"] = x => "Healthy";
         }
     }
 }

@@ -7,14 +7,14 @@ using PoC.Sqs.Core.Messaging.Handlers;
 namespace PoC.Sqs.Tests.Inner
 {
     [TestFixture]
-    public class SqsWorkerShould : AutoSubstituteTestBase<SqsWorker>
+    public class SqsWorkerShould : AutoSubstituteTestBase<SqsMessagingWorker>
     {
-        private SqsWorker TheSqsWorker => Sut;
+        private SqsMessagingWorker _theSqsMessagingWorker => Sut;
 
         [Test]
         public void IntialiseTheStockEventChangeHandler()
         {
-            TheSqsWorker.Start();
+            _theSqsMessagingWorker.Start();
             TheDependency<IMessageHandler<StockChangeEventV1>>().Received(1).Init();
         }
     }

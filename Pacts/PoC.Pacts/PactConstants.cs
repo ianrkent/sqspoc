@@ -1,9 +1,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Product.Tests.Client
+namespace PoC.Pacts
 {
-    public static class Constants
+    public static class PactConstants
     {
         public static JsonSerializerSettings JsonSettings = new JsonSerializerSettings
         {

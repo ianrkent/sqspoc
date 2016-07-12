@@ -59,7 +59,7 @@
     <Compile Include="Infrastructure\Owin\Startup.cs" />
     <Compile Include="Messaging\Handlers\IMessageHandler.cs" />
     <Compile Include="IoCConfig.cs" />
-    <Compile Include="SqsWorker.cs" />
+    <Compile Include="SqsMessagingWorker.cs" />
     <Compile Include="Messaging\StockChangeEventV1.cs" />
     <Compile Include="Adapters\Messaging\SubscriptionCreationArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

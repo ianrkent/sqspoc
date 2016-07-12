@@ -3,11 +3,11 @@ using PoC.Sqs.Core.Messaging.Handlers;
 
 namespace PoC.Sqs.Core
 {
-    public class SqsWorker
+    public class SqsMessagingWorker
     {
         private readonly IMessageHandler<StockChangeEventV1> _stockChangeHandler;
 
-        public SqsWorker(IMessageHandler<StockChangeEventV1> stockChangeHandler)
+        public SqsMessagingWorker(IMessageHandler<StockChangeEventV1> stockChangeHandler)
         {
             _stockChangeHandler = stockChangeHandler;
         }

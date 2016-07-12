@@ -52,8 +52,8 @@
       <HintPath>$(SolutionDir)\packages\Nancy.Hosting.Self.0.23.1\lib\net40\Nancy.Hosting.Self.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
@@ -82,14 +82,25 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Client\Constants.cs" />
-    <Compile Include="RegionStockStatus.cs" />
+    <Compile Include="Client\ServiceStatus.cs" />
+    <Compile Include="Client\RegionStockStatus.cs" />
     <Compile Include="Client\SqsRegionStockApiClient.cs" />
     <Compile Include="SqsRegionStockApiShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pacts\ClassLibrary1\PoC.Contracts.csproj">
+      <Project>{cd76975b-768e-4747-8b04-f6a6d00a396a}</Project>
+      <Name>PoC.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pacts\PoC.Pacts\PoC.Pacts.csproj">
+      <Project>{b603461a-e06d-458c-881f-e8783c72993d}</Project>
+      <Name>PoC.Pacts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

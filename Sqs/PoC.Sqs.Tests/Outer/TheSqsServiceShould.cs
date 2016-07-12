@@ -14,18 +14,18 @@ namespace PoC.Sqs.Tests.Outer
     [TestFixture]
     public class TheSqsServiceShould : OuterTestBase
     {
-        private SqsWorker TheSqsWorker;
+        private SqsMessagingWorker _theSqsMessagingWorker;
 
         [SetUp]
         public void Setup()
         {
-            TheSqsWorker = IoCConfig.ResolveService<SqsWorker>();
+            _theSqsMessagingWorker = IoCConfig.ResolveService<SqsMessagingWorker>();
         }
 
         [Test]
         public void RetrieveItsListOfWarehousesFromConfiguration()
         {
-            TheSqsWorker.Start();
+            _theSqsMessagingWorker.Start();
 
             AdapterSubstitute<IServiceConfiguration>()
                 .Received().GetConfigSetting(ConfigSettingKeys.WarehouseList);
@@ -34,7 +34,7 @@ namespace PoC.Sqs.Tests.Outer
         [Test]
         public void SubscribeToStockChangeEventsForAllItsWarehouses()
         {
-            TheSqsWorker.Start();
+            _theSqsMessagingWorker.Start();
 
             AdapterSubstitute<IAzureTopicSubscriber>()
                 .Received()
@@ -59,7 +59,7 @@ namespace PoC.Sqs.Tests.Outer
                     Arg.Do<SubscriptionCreationArgs>(
                         creationArgs => subscriptionMessageHandler = creationArgs.MessageHandler));
 
-            TheSqsWorker.Start();
+            _theSqsMessagingWorker.Start();
             await subscriptionMessageHandler(new StockChangeEventV1 { Sku = sku, WarehouseId = warehouseId });
 
             // assert
@@ -95,7 +95,7 @@ namespace PoC.Sqs.Tests.Outer
             AdapterSubstitute<IStockQuantityQuery>().GetSingle(sku, warehouseId).Returns(existing);
 
             // act
-            TheSqsWorker.Start();
+            _theSqsMessagingWorker.Start();
             await subscriptionMessageHandler(message);
 
             // assert

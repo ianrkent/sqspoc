@@ -1,3 +1,4 @@
+using Nancy;
 using Nancy.Owin;
 using Owin;
 
@@ -7,7 +8,7 @@ namespace PoC.Sqs.Core.Infrastructure.Owin
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseNancy(new NancyOptions { });
+            app.UseNancy(new NancyOptions { Bootstrapper = new DefaultNancyBootstrapper() });
         }
     }
 }
