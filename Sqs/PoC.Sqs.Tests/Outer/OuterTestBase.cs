@@ -6,6 +6,7 @@ using PoC.Sqs.Core;
 using PoC.Sqs.Core.Adapters.Configuration;
 using PoC.Sqs.Core.Adapters.DataStore;
 using PoC.Sqs.Core.Adapters.Messaging;
+using PoC.Sqs.Core.Adapters;
 
 namespace PoC.Sqs.Tests.Outer
 {
@@ -26,6 +27,7 @@ namespace PoC.Sqs.Tests.Outer
             InjectAdapterSubstitute<IStockQuantityQuery>();
             InjectAdapterSubstitute<IStockQuantityCommand>();
             InjectAdapterSubstitute<IAzureTopicSubscriber>();
+            InjectAdapterSubstitute<IAdapterHealthCheck>();
         }
 
         private void InjectAdapterSubstitute<TService>() where TService : class 

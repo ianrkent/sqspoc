@@ -5,7 +5,7 @@ using NUnit.Framework;
 using PactNet;
 using PactNet.Mocks.MockHttpService;
 using PactNet.Mocks.MockHttpService.Models;
-using PoC.Pacts;
+using PoC.Contracts.V1;
 using Product.Tests.Client;
 using ServiceStatus = Product.Tests.Client.ServiceStatus;
 
@@ -32,7 +32,7 @@ namespace Product.Tests
 
             _mockProviderService = _pactBuilder.MockService(
                 MockSqsApiPort,
-                PactConstants.JsonSettings);
+                Constants.JsonSettings);
         }
 
         [SetUp]

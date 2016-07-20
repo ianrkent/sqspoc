@@ -101,9 +101,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Pacts\PoC.Pacts\PoC.Pacts.csproj">
-      <Project>{b603461a-e06d-458c-881f-e8783c72993d}</Project>
-      <Name>PoC.Pacts</Name>
+    <ProjectReference Include="..\..\Pacts\ClassLibrary1\PoC.Contracts.csproj">
+      <Project>{CD76975B-768E-4747-8B04-F6A6D00A396A}</Project>
+      <Name>PoC.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\PoC.Sqs.Core\PoC.Sqs.Core.csproj">
       <Project>{fe553e16-6fe9-4de4-bfcb-81f8aa6e996b}</Project>

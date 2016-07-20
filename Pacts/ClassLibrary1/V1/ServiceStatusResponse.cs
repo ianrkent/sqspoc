@@ -1,4 +1,4 @@
-namespace PoC.Contracts
+namespace PoC.Contracts.V1
 {
     public class ServiceStatusResponse
     {

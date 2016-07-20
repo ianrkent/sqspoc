@@ -12,7 +12,7 @@ using PoC.Sqs.Core.Messaging;
 namespace PoC.Sqs.Tests.Outer
 {
     [TestFixture]
-    public class TheSqsServiceShould : OuterTestBase
+    public class TheSqsWorkerServiceShould : OuterTestBase
     {
         private SqsMessagingWorker _theSqsMessagingWorker;
 

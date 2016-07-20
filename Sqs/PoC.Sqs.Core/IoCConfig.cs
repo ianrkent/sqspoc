@@ -10,7 +10,7 @@ namespace PoC.Sqs.Core
 {
     public static class IoCConfig
     {
-        private static IContainer Container { get; set; }
+        public static IContainer Container { get; private set; }
 
         public static void BuildContainer()
         {

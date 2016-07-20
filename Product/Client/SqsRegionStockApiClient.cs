@@ -2,8 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
-using PoC.Contracts;
-using PoC.Pacts;
+using PoC.Contracts.V1;
 
 namespace Product.Tests.Client
 {
@@ -27,7 +26,7 @@ namespace Product.Tests.Client
             if (result.StatusCode != HttpStatusCode.OK) return null;
 
             var responseContent = result.Content.ReadAsStringAsync().Result;
-            var resource = JsonConvert.DeserializeObject<RegionStockStatusResource>(responseContent, PactConstants.JsonSettings);
+            var resource = JsonConvert.DeserializeObject<RegionStockStatusResource>(responseContent, Constants.JsonSettings);
             RegionStockStatus parsedRegionStockStatus;
             if (!Enum.TryParse(resource.Status, out parsedRegionStockStatus)) return null;
             
@@ -45,7 +44,7 @@ namespace Product.Tests.Client
             if (result.StatusCode != HttpStatusCode.OK) throw new Exception($"Response code of { result.StatusCode } returned which is not part of the contract");
 
             var responseContent = result.Content.ReadAsStringAsync().Result;
-            var resource = JsonConvert.DeserializeObject<ServiceStatusResponse>(responseContent, PactConstants.JsonSettings);
+            var resource = JsonConvert.DeserializeObject<ServiceStatusResponse>(responseContent, Constants.JsonSettings);
 
             ServiceStatus parsedStatus;
             if (!Enum.TryParse(resource.Status, out parsedStatus)) throw new Exception($"Unable to parse response status of { resource.Status }"); ;
