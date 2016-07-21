@@ -51,6 +51,8 @@
     <Compile Include="Adapters\DataStore\IStockQuantityCommand.cs" />
     <Compile Include="Adapters\DataStore\IStockQuantityQuery.cs" />
     <Compile Include="Adapters\DataStore\DocumentDb\StockQuantityCommand.cs" />
+    <Compile Include="Adapters\DataStore\DocumentDb\DocumentDbHealthChecker.cs" />
+    <Compile Include="Adapters\IDependencyHealthCheck.cs" />
     <Compile Include="Adapters\Messaging\AzureTopicSubscriber.cs" />
     <Compile Include="Adapters\Messaging\IAzureTopicSubscriber.cs" />
     <Compile Include="Adapters\Configuration\IServiceConfiguration.cs" />
@@ -94,6 +96,10 @@
     </Reference>
     <Reference Include="Nancy, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nancy.1.4.1\lib\net40\Nancy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Bootstrappers.Autofac, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.Bootstrappers.Autofac.1.4.1\lib\net40\Nancy.Bootstrappers.Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.Owin, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">

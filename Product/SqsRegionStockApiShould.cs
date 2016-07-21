@@ -123,8 +123,7 @@ namespace Product.Tests
                     },
                     Body = new
                     {
-                        status = "Unhealthy",
-                        problems = new object[1]
+                        status = "Unhealthy"
                     }
                 });
 

@@ -1,4 +1,5 @@
 using Autofac;
+using PoC.Sqs.Core.Adapters;
 using PoC.Sqs.Core.Adapters.Configuration;
 using PoC.Sqs.Core.Adapters.DataStore;
 using PoC.Sqs.Core.Adapters.DataStore.DocumentDb;
@@ -10,7 +11,7 @@ namespace PoC.Sqs.Core
 {
     public static class IoCConfig
     {
-        private static IContainer Container { get; set; }
+        public static IContainer Container { get; private set; }
 
         public static void BuildContainer()
         {
@@ -30,6 +31,8 @@ namespace PoC.Sqs.Core
             builder.RegisterType<StockQuantityQuery>().As<IStockQuantityQuery>();
             builder.RegisterType<StockQuantityCommand>().As<IStockQuantityCommand>();
             builder.RegisterType<AzureTopicSubscriber>().As<IAzureTopicSubscriber>();
+
+            builder.RegisterType<DocumentDbHealthChecker>().As<IDependencyHealthCheck>();  // currently only using the one type of health checker.
         }
 
         public static TService ResolveService<TService>()
